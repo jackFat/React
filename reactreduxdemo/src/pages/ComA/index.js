@@ -1,23 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import './index.css'
 
 class ComA extends Component {
-  handleClick = () => {
+  handleAddClick = () => {
     console.log(this.props)
-    this.props.sendAction()
+    this.props.sendAddAction()
+  }
+  handleReduceClick = () => {
+    this.props.sendReduceAction()
   }
   render() {
     return (
-      <button onClick={this.handleClick}>+</button>
+      <div className="comment-content">
+      <button onClick={this.handleAddClick}>+</button>
+      <button onClick={this.handleReduceClick}>-</button>
+      </div>
     );
   } 
 }
 
 const mapDisPatchToPorps = (dispatch) => {
   return {
-    sendAction: () => {
+    sendAddAction: () => {
       dispatch({
         type: 'add_action'
+      })
+    },
+    sendReduceAction: () => {
+      dispatch({
+        type: 'reduce_action'
       })
     }
   }
