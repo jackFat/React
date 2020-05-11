@@ -4,13 +4,13 @@ import { connect } from 'react-redux'
 class ComB extends Component {
   render() {
     return (
-    <div>{this.props.count}</div>
+    <div>{this.props.CountReducer.count}</div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state)
+  console.log('ComB', state)
   return state
 }
 

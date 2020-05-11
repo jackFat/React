@@ -1,10 +1,10 @@
 // state, action
-
+import { combineReducers } from 'redux'
 const initState = {
   count: 0
 }
 
-exports.reducer = (state=initState, action) => {
+const CountReducer = (state=initState, action) => {
   switch (action.type) {
     case 'add_action':
       return {
@@ -19,3 +19,15 @@ exports.reducer = (state=initState, action) => {
       return state
   }
 }
+
+const InfoReducer = (state=0, action) => {
+  console.log(action)
+  return state
+}
+
+const ComReducer = combineReducers({
+  CountReducer, 
+  InfoReducer
+})
+
+export default ComReducer
